@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Шапка -->
+        <div class="header-container">
+            <ul class="topmenu">
+                <li>&lt<a href="#">i_savelev<p>✋</p></a>&gt</li>
+                <li><a href="#">links</a>
+                    <ul class="submenu">
+                        <li><a href="https://github.com/i-savelev" target="_blank">GitHub</a></li>
+                        <li><a href="https://t.me/i_savelev" target="_blank">Telegram</a></li>
+                        <li><a href="https://habr.com/ru/users/i-savelev/" target="_blank">Habr</a></li>
+                        <li><a href="mailto:ilyasavelyev98@mail.ru" target="_blank">Email</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Посты -->
+        
+        <div class="posts-container">
+            <h3>&ltposts&gt</h3>
+            {% if articles_list %}
+                {% for article in articles_list %}
+                    <div class="post">
+                        <h2>{{article.title}}</h2>
+                        <p class = "pub_date">{{article.pub_date |date:"Y.m.j"}}</p>
+                        <div class = "tags">Теги: 
+                            {% for tag in article.tags.all %}
+                               <span>#{{tag.name}} </span> 
+                            {% endfor %}
+                        </div>
+                        <p class = "descriprion">{{article.description |safe }}</p>
+                        <a href="#" class="read-more">Читать далее</a>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No polls are available.</p>
+            {% endif %}
+        </div>
+        <!-- Пагинация -->
+        <div class="pagination">
+            <a href="#"><-</a>
+            <span>[</span>
+            <a href="#">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <span>...</span>
+            <a href="#">6</a>
+            <span>]</span>
+            <a href="#">-></a>
+        </div>
+    </div>
+</body>
+</html>
