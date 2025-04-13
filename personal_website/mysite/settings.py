@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'tinymce', 
+    
     "blog.apps.BlogConfig",  # ссылка мое на приложение
     'django.contrib.admin',
     'django.contrib.auth',
@@ -141,3 +142,5 @@ TINYMCE_DEFAULT_CONFIG = {
         bullist numlist | link image | codesample |
     ''',
 }
+
+DATA_UPLOAD_MAX_MEMORY_SIZE = 10 * 1024 * 1024

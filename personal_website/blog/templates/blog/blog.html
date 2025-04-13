@@ -1,0 +1,36 @@
+{% extends "blog/base.html" %}
+{% block content %}
+    <div class="posts-container">
+        <h3>posts</h3>
+        {% if articles_list %}
+            {% for article in articles_list %}
+                <div class="post">
+                    <h2>{{article.title}}, id:{{article.id}}</h2>
+                    <p class = "pub_date">{{article.pub_date |date:"Y.m.j"}}</p>
+                    <div class = "tags"> 
+                        {% for tag in article.tags.all %}
+                            <span class = "tag">#{{tag.name}}</span> 
+                        {% endfor %}
+                    </div>
+                    <p class = "descriprion">{{article.description |safe }}</p>
+                    <a href="{% url 'blog:article' article.id %}" class="read-more">Читать далее</a>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No posts are available.</p>
+        {% endif %}
+    </div>
+    <!-- Пагинация -->
+    <div class="pagination">
+        <a href="#"><-</a>
+        <span>[</span>
+        <a href="#">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <span>...</span>
+        <a href="#">6</a>
+        <span>]</span>
+        <a href="#">-></a>
+    </div>
+{% endblock %}
+       

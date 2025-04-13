@@ -12,7 +12,7 @@ class Article(models.Model):
     title = models.CharField(max_length=200)
     pub_date = models.DateTimeField(default=timezone.now)
     description = HTMLField()
-    content = HTMLField()
+    content = HTMLField(blank=True)
     tags = models.ManyToManyField(Tag, related_name='articles', blank=True)
     draft = models.BooleanField()
     
