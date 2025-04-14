@@ -31,8 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'tinymce', 
-    
+    'tinymce',
     "blog.apps.BlogConfig",  # ссылка мое на приложение
     'django.contrib.admin',
     'django.contrib.auth',
@@ -144,3 +143,7 @@ TINYMCE_DEFAULT_CONFIG = {
 }
 
 DATA_UPLOAD_MAX_MEMORY_SIZE = 10 * 1024 * 1024
+
+MEDIA_URL='/data/'
+
+MEDIA_ROOT = BASE_DIR /'data'
