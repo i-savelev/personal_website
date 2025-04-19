@@ -1,11 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
 
 /* Общие стили */
-body {
+html,body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #000000;
+  height: 100%;
+  background-color: #070707;
+  /* background: #00081f;
+  background: linear-gradient(186deg,rgba(0, 8, 31, 1) 0%, rgba(26, 17, 0, 1) 59%, rgba(23, 0, 0, 1) 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 100%; */
 }
 
 .container {
@@ -14,12 +19,18 @@ body {
   align-items: center;
   justify-self: center;
   max-width: 800px;
+  min-height: 100%;
+  display: flex;
+	flex-direction: column;
+  flex: start;
 }
 
 /* Хедер */
 
 .header-container {
-  background-color: #000000;
+  flex: 0 0 auto;
+  width: 100%;
+  /* background-color: #000000; */
   color: #ffffff;
   display: flex;
   padding-top: 20px;
@@ -143,25 +154,54 @@ li:hover p {
 /* Статьи */
 
 .posts-container {
+  flex: 1 1 auto;
   margin:auto;
-  background-color: #000000;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  
+}
+
+.posts-container .tags{
+  display: inline;
+  color: #ffffff;
+  font-family: 'JetBrains mono', monospace;
+  font-size: 16px;
+	/* flex-direction: row;
+  flex: start; */
+}
+
+.tag_link{
+  display: inline-block;
+  color: #ffffff;
+  text-decoration: none;
+  margin-top: 10px;
+  border: 1px solid #686868;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-right: 5px;
+  padding-left: 5px;
+  border-radius: 5px;
+}
+
+.tag_link:hover {
+  
+  background-color: hsla(0, 0%, 100%, 0.4);;
 }
 
 .posts-container h3 {
   color: #ffffff;
   padding: 0px;
   margin-block-start: 0em;
-  margin-block-end: 20px;
+  margin-block-end: 10px;
   font-family: 'JetBrains mono', monospace;
   font-weight: 800;
   font-size: 24px;
 }
 
 .post {
-  margin-bottom: 20px;
+  margin-top: 20px;
+  /* margin-bottom: 10px; */
   padding: 20px;
-  background-color: #fff;
+  background-color: #ffffff;
   border-radius: 10px;
 }
 
@@ -182,7 +222,7 @@ li:hover p {
 }
 
 .post p {
-  margin: 10px 0;
+  margin: 5px 0;
   line-height: 1.6;
 }
 
@@ -196,7 +236,7 @@ li:hover p {
   box-shadow: inset 0 -1px 0 hsla(0, 0%, 0%, 0.4);
 }
 
-.tag{
+.post .tag{
   /* border: 1px solid #989898; */
   color: #ffffff;
   background-color: #696969;
@@ -205,8 +245,11 @@ li:hover p {
   padding-left: 5px;
   padding-right: 5px;
   margin-right: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   font-family: 'JetBrains mono', monospace;
   font-size: 14px;
+  display: inline-block;
 }
 
 .read-more:hover {
@@ -261,4 +304,7 @@ p > code {
 footer {
   color: #c5c5c5;
   padding-bottom: 20px;
+  margin-bottom: 0px;
+  flex: 0 0 auto;
+  width: 100%;
 }

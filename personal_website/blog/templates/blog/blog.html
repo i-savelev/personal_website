@@ -2,6 +2,13 @@
 {% block content %}
     <div class="posts-container">
         <h3>posts</h3>
+        <div class="tags">tags:
+            {% if tags %}
+                {% for tag in tags %}
+                    <a href="#" class="tag_link">#{{tag.name}}</a>
+                {% endfor %}
+            {% endif %}
+        </div>
         {% if articles_list %}
             {% for article in articles_list %}
                 <div class="post">
