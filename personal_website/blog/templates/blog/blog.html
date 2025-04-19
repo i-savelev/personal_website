@@ -22,15 +22,17 @@
     </div>
     <!-- Пагинация -->
     <div class="pagination">
-        <a href="#"><-</a>
-        <span>[</span>
-        <a href="#">1</a>
-        <a href="#">2</a>
-        <a href="#">3</a>
-        <span>...</span>
-        <a href="#">6</a>
-        <span>]</span>
-        <a href="#">-></a>
+        {% for num in pages_list %}
+            {% if num != '…' %}
+                {% if num == articles_list.number %}
+                    <strong><a href="?page={{ num }}">[{{ num }}]</a></strong>
+                {% else %}
+                    <a href="?page={{ num }}">{{ num }}</a>
+                {% endif %}
+            {% else %}
+                ...
+            {% endif %}
+        {% endfor %}
     </div>
 {% endblock %}
        

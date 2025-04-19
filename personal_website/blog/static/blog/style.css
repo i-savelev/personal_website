@@ -245,14 +245,13 @@ p > code {
   padding: 0px;
   font-family: 'JetBrains mono', monospace;
   font-weight: 400;
-  font-size: 20px;
+  font-size: 24px;
 }
 
 .pagination a {
   color: #ffffff;
   text-decoration: none;
   padding: 0 5px;
-  font-size: 18px;
 }
 
 .pagination a:hover {

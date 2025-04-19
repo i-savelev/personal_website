@@ -24,7 +24,7 @@ class Article(models.Model):
 
     def save(self, *args, **kwargs):
         """
-        added image saving to a file
+        added image saving from tinymce editor to a file
         """
         self.content = self.b64_to_file(self.content)
         self.description = self.b64_to_file(self.description)
@@ -40,7 +40,7 @@ class Article(models.Model):
         for b64_image_one in b64_images:
             img_data = b64_image_one.split(',', maxsplit=1)[1]
             img_GUID = str(uuid.uuid4())
-            img_name = f'article_id-{self.id}-{img_GUID}.png'
+            img_name = f'articleId_{self.id}_{img_GUID}.png'
             img_save_URL = Path(settings.MEDIA_ROOT)/'articles'/img_name
             img_URL = f'{settings.MEDIA_URL}articles/{img_name}'
             with open(img_save_URL, "wb") as fh:
