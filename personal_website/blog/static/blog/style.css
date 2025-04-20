@@ -350,7 +350,6 @@ p > code {
 .pagination {
   text-align: center;
   margin-top: 20px;
-  margin-bottom: 20px;
   color: #ffffff;
   padding: 0px;
   font-family: 'JetBrains mono', monospace;
@@ -370,6 +369,7 @@ p > code {
 
 footer {
   color: #c5c5c5;
+  padding-top: 20px;
   padding-bottom: 20px;
   margin-bottom: 0px;
   flex: 0 0 auto;
