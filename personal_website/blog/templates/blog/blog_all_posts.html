@@ -1,0 +1,38 @@
+{% extends "blog/base.html" %}
+{% block content %}
+    <div class="posts-container">
+        <div class = "blog_links">
+            <a href="{% url 'blog:article_list' %}">blog</a>
+            <a href="{% url 'blog:article_all' %}">all posts</a>
+        </div>
+        <!-- <h3>all posts:</h3> -->
+        <!-- <hr> -->
+        {% if articles_list %}
+            {% for article in articles_list %}
+                <div class = "post-inline">
+                    <a href="{% url 'blog:article' article.id %}">{{article.title}}</a> {{article.pub_date |date:"Y.m.j"}}
+                    {% for tag in article.tags.all %}
+                        <span class = "tag">#{{tag.name}}</span> 
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No posts are available.</p>
+        {% endif %}
+    </div>
+    <!-- Пагинация -->
+    <div class="pagination">
+        {% for num in pages_list %}
+            {% if num != '…' %}
+                {% if num == articles_list.number %}
+                    <strong><a href="?page={{ num }}">[{{ num }}]</a></strong>
+                {% else %}
+                    <a href="?page={{ num }}">{{ num }}</a>
+                {% endif %}
+            {% else %}
+                ...
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}
+       

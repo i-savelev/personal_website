@@ -1,6 +1,10 @@
 {% extends "blog/base.html" %}
 {% block content %}
     <div class="posts-container">
+        <div class = "blog_links">
+            <a href="{% url 'blog:article_list' %}">blog</a>
+            <a href="{% url 'blog:article_all' %}">all posts</a>
+        </div>
         <div class="post">
             <h1>{{article.title}}, id:{{article.id}}</h2>
             <p class = "pub_date">{{article.pub_date |date:"Y.m.j"}}</p>

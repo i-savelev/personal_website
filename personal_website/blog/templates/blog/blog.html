@@ -1,11 +1,22 @@
 {% extends "blog/base.html" %}
 {% block content %}
     <div class="posts-container">
-        <h3>posts</h3>
+        <div class = "blog_links">
+            <a href="{% url 'blog:article_list' %}">blog</a>
+            <a href="{% url 'blog:article_all' %}">all posts</a>
+        </div>
         <div class="tags">tags:
             {% if tags %}
                 {% for tag in tags %}
-                    <a href="#" class="tag_link">#{{tag.name}}</a>
+                    {% if tag_name %}
+                        {% if tag_name == tag.name %}
+                            <a href="{% url 'blog:article_list' %}" class="tag_link_hover">#{{tag.name}}</a>
+                        {% else %}
+                            <a href="{% url 'blog:article_by_tag_list' tag.name %}" class="tag_link">#{{tag.name}}</a>
+                        {% endif %}
+                    {% else %}
+                        <a href="{% url 'blog:article_by_tag_list' tag.name %}" class="tag_link">#{{tag.name}}</a>
+                    {% endif %}
                 {% endfor %}
             {% endif %}
         </div>
