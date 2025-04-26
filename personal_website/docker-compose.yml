@@ -25,10 +25,10 @@ services:
       - ./nginx.conf:/etc/nginx/nginx.conf  # Конфигурация Nginx
       - ./staticfiles:/app/staticfiles  # Монтирование статических файлов
       - ./data:/app/data
-      - ./db.sqlite3:/app/db.sqlite3
     depends_on:
       - web
 
 volumes:
   staticfiles:
   data:
+  db:
