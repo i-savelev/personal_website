@@ -14,9 +14,6 @@ from pathlib import Path
 from dotenv import load_dotenv
 import os
 
-
-
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -28,13 +25,13 @@ load_dotenv(dotenv_path)
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = os.getenv('SECRET_KEY', 'my_secret_key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DEBUG', 'False') == 'True'
+DEBUG = os.getenv('DEBUG', 'True') == 'True'
 # DEBUG = True
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '127.0.0.1').split(',')
 
 
 # Application definition
@@ -125,11 +122,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Путь для сборки статики
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'blog/static'),  # Дополнительные директории со статическими файлами
-]
+STATIC_URL = '/static'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')  # Путь для сборки статики
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'blog/static'),  # Дополнительные директории со статическими файлами
+# ]
+
+MEDIA_URL='/data/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'data')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
@@ -156,7 +156,3 @@ TINYMCE_DEFAULT_CONFIG = {
 }
 
 DATA_UPLOAD_MAX_MEMORY_SIZE = 10 * 1024 * 1024
-
-MEDIA_URL='/data/'
-
-MEDIA_ROOT = BASE_DIR /'data'

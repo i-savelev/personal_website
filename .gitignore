@@ -12,3 +12,4 @@ wheels/
 data
 db.sqlite3
 .env
+staticfiles
