@@ -9,4 +9,5 @@ dependencies = [
     "django-ckeditor>=6.7.2",
     "django-ckeditor-5>=0.2.17",
     "django-tinymce>=4.1.0",
+    "dotenv>=0.9.9",
 ]

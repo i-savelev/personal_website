@@ -15,7 +15,8 @@ class Tag(models.Model):
         return self.name
 
 class Article(models.Model):
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=250)
+    short_title = models.CharField(default='article')
     pub_date = models.DateTimeField(default=timezone.now)
     description = HTMLField()
     content = HTMLField(blank=True)
@@ -26,6 +27,7 @@ class Article(models.Model):
         """
         added image saving from tinymce editor to a file
         """
+        self.short_title = self.short_title.replace(' ', '_')
         self.content = self.b64_to_file(self.content)
         self.description = self.b64_to_file(self.description)
         super(Article, self).save(*args, **kwargs)
@@ -40,7 +42,7 @@ class Article(models.Model):
         for b64_image_one in b64_images:
             img_data = b64_image_one.split(',', maxsplit=1)[1]
             img_GUID = str(uuid.uuid4())
-            img_name = f'articleId_{self.id}_{img_GUID}.png'
+            img_name = f'article_{self.short_title}_{img_GUID}.png'
             img_save_URL = Path(settings.MEDIA_ROOT)/'articles'/img_name
             img_URL = f'{settings.MEDIA_URL}articles/{img_name}'
             with open(img_save_URL, "wb") as fh:

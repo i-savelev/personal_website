@@ -23,7 +23,7 @@
         {% if articles_list %}
             {% for article in articles_list %}
                 <div class="post">
-                    <h2>{{article.title}}, id:{{article.id}}</h2>
+                    <h2>{{article.title}}</h2>
                     <p class = "pub_date">{{article.pub_date |date:"Y.m.j"}}</p>
                     <div class = "tags"> 
                         {% for tag in article.tags.all %}
