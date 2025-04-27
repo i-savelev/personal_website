@@ -9,6 +9,8 @@ services:
       - ./db.sqlite3:/app/db.sqlite3  # Монтирование файла базы данных как внешнего
       - ./staticfiles:/app/staticfiles  # Монтирование статических файлов
       - ./data:/app/data  # Папки для хранения файлов
+      - /etc/letsencrypt/live/i-savelev.ru/fullchain.pem:/etc/nginx/ssl/fullchain.pem
+      - /etc/letsencrypt/live/i-savelev.ru/privkey.pem:/etc/nginx/ssl/privkey.pem
     ports:
       - "8000:8000"  # Проброс порта для доступа к приложению
     environment:
