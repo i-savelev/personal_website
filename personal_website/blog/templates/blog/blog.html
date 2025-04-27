@@ -5,8 +5,8 @@
             <a href="{% url 'blog:article_list' %}">blog</a>
             <a href="{% url 'blog:article_all' %}">all posts</a>
         </div>
-        <div class="tags">tags:
-            {% if tags %}
+        {% if tags %}
+            <div class="tags">tags:
                 {% for tag in tags %}
                     {% if tag_name %}
                         {% if tag_name == tag.name %}
@@ -18,8 +18,8 @@
                         <a href="{% url 'blog:article_by_tag_list' tag.name %}" class="tag_link">#{{tag.name}}</a>
                     {% endif %}
                 {% endfor %}
-            {% endif %}
-        </div>
+            </div>
+        {% endif %}
         {% if articles_list %}
             {% for article in articles_list %}
                 <div class="post">
