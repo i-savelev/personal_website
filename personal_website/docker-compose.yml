@@ -22,6 +22,8 @@ services:
       - "80:80"
       - "443:443"
     volumes:
+      - /etc/letsencrypt/live/i-savelev.ru/fullchain.pem:/etc/nginx/ssl/fullchain.pem
+      - /etc/letsencrypt/live/i-savelev.ru/privkey.pem:/etc/nginx/ssl/privkey.pem
       - ./nginx.conf:/etc/nginx/nginx.conf  # Конфигурация Nginx
       - ./staticfiles:/app/staticfiles  # Монтирование статических файлов
       - ./data:/app/data
