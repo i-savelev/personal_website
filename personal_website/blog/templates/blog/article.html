@@ -6,15 +6,15 @@
             <a href="{% url 'blog:article_all' %}">all posts</a>
         </div>
         <div class="post">
-            <h1>{{article.title}}, id:{{article.id}}</h2>
+            <h1>{{article.title}}</h2>
             <p class = "pub_date">{{article.pub_date |date:"Y.m.j"}}</p>
             <div class = "tags"> 
                 {% for tag in article.tags.all %}
                     <span class = "tag">#{{tag.name}}</span> 
                 {% endfor %}
             </div>
-            <p class = "descriprion">{{article.description |safe }}</p>
-            <p class = "content">{{article.content |safe }}</p>
+            <div class = "description">{{article.description |safe }}</div>
+            <div class = "content">{{article.content |safe }}</div>
         </div>
     </div>
 {% endblock %}

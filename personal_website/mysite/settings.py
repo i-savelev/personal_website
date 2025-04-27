@@ -122,8 +122,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = '/staticfiles'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')  # Путь для сборки статики
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Путь для сборки статики
 # STATICFILES_DIRS = [
 #     os.path.join(BASE_DIR, 'blog/static'),  # Дополнительные директории со статическими файлами
 # ]
@@ -156,3 +156,12 @@ TINYMCE_DEFAULT_CONFIG = {
 }
 
 DATA_UPLOAD_MAX_MEMORY_SIZE = 10 * 1024 * 1024
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+CSRF_TRUSTED_ORIGINS = [
+    'https://i-savelev.ru',
+    'http://i-savelev.ru',  # Если вы также используете HTTP
+    'https://localhost',
+]

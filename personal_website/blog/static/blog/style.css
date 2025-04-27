@@ -111,13 +111,13 @@ li {
   align-items: center;
 }
 
-.header-container a {
+.header-container a, .links {
   color: white;
   text-decoration: none;
   box-shadow: inset 0 -1px 0 hsla(0, 0%, 100%, 0.4);
 }
   
-.header-container a:hover {
+.header-container a:hover, .links:hover {
   box-shadow: inset 0 -1.2em 0 hsla(0, 0%, 100%, 0.4);
 }
 
@@ -277,9 +277,13 @@ hr {
   font-size: 24px;
 }
 
-.post img {
+.description img {
   width: 100%;
   height: auto;
+  border-radius: 10px;
+}
+
+.content img {
   border-radius: 10px;
 }
 
@@ -354,7 +358,7 @@ p > code {
   padding: 0px;
   font-family: 'JetBrains mono', monospace;
   font-weight: 400;
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .pagination a {

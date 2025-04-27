@@ -30,7 +30,7 @@
                             <span class = "tag">#{{tag.name}}</span> 
                         {% endfor %}
                     </div>
-                    <p class = "descriprion">{{article.description |safe }}</p>
+                    <div class = "description">{{article.description |safe }}</div>
                     <a href="{% url 'blog:article' article.id %}" class="read-more">Читать далее</a>
                 </div>
             {% endfor %}
