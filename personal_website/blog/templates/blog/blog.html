@@ -20,8 +20,8 @@
                 {% endfor %}
             </div>
         {% endif %}
-        {% if articles_list %}
-            {% for article in articles_list %}
+        {% if page_obj %}
+            {% for article in page_obj %}
                 <div class="post">
                     <h2>{{article.title}}</h2>
                     <p class = "pub_date">{{article.pub_date |date:"Y.m.j"}}</p>
@@ -40,17 +40,19 @@
     </div>
     <!-- Пагинация -->
     <div class="pagination">
-        {% for num in pages_list %}
-            {% if num != '…' %}
-                {% if num == articles_list.number %}
-                    <strong><a href="?page={{ num }}">[{{ num }}]</a></strong>
+        {% if page_obj.paginator.num_pages > 1 %}
+            {% for num in pages_list %}
+                {% if num != '…' %}
+                    {% if num == page_obj.number %}
+                        <strong><a href="?page={{ num }}">[{{ num }}]</a></strong>
+                    {% else %}
+                        <a href="?page={{ num }}">{{ num }}</a>
+                    {% endif %}
                 {% else %}
-                    <a href="?page={{ num }}">{{ num }}</a>
+                    ...
                 {% endif %}
-            {% else %}
-                ...
-            {% endif %}
-        {% endfor %}
+            {% endfor %}
+        {% endif %}
     </div>
 {% endblock %}
        

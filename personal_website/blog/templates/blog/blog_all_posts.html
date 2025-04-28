@@ -7,8 +7,8 @@
         </div>
         <!-- <h3>all posts:</h3> -->
         <!-- <hr> -->
-        {% if articles_list %}
-            {% for article in articles_list %}
+        {% if page_obj %}
+            {% for article in page_obj %}
                 <div class = "post-inline">
                     <a href="{% url 'blog:article' article.id %}">{{article.title}}</a> {{article.pub_date |date:"Y.m.j"}}
                     {% for tag in article.tags.all %}
@@ -22,17 +22,19 @@
     </div>
     <!-- Пагинация -->
     <div class="pagination">
-        {% for num in pages_list %}
-            {% if num != '…' %}
-                {% if num == articles_list.number %}
-                    <strong><a href="?page={{ num }}">[{{ num }}]</a></strong>
+        {% if page_obj.paginator.num_pages > 1 %}
+            {% for num in pages_list %}
+                {% if num != '…' %}
+                    {% if num == page_obj.number %}
+                        <strong><a href="?page={{ num }}">[{{ num }}]</a></strong>
+                    {% else %}
+                        <a href="?page={{ num }}">{{ num }}</a>
+                    {% endif %}
                 {% else %}
-                    <a href="?page={{ num }}">{{ num }}</a>
+                    ...
                 {% endif %}
-            {% else %}
-                ...
-            {% endif %}
-        {% endfor %}
+            {% endfor %}
+        {% endif %}
     </div>
 {% endblock %}
        

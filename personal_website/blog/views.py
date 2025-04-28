@@ -13,7 +13,7 @@ def article_list(request):
     pages_list = paginator.get_elided_page_range(number = page_obj.number, on_each_side=1, on_ends=1)
     context = {
         'tags': tags_list,
-        'articles_list': page_obj,
+        'page_obj': page_obj,
         'pages_list': pages_list,
         }
     return render(request, 'blog/blog.html', context)
@@ -28,7 +28,7 @@ def article_by_tag_list(request, tag_name):
 
     context = {
         'tags': tags_list,
-        'articles_list': page_obj,
+        'page_obj': page_obj,
         'pages_list': pages_list,
         'tag_name': tag_name,
         }
@@ -42,7 +42,7 @@ def article_all(request):
     page_obj = paginator.get_page(page_number)
     pages_list = paginator.get_elided_page_range(number = page_obj.number, on_each_side=1, on_ends=1)
     context = {
-        'articles_list': page_obj,
+        'page_obj': page_obj,
         'pages_list': pages_list,
         }
     print(f"Rendering template: blog/allposts.html")
