@@ -154,6 +154,14 @@ li:hover p {
 
 /* Статьи */
 
+.placeholder {
+  color: white;
+  font-family: 'JetBrains mono', monospace;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
 hr {
   border-color: #7b7b7b83;
   width: 100%;
