@@ -37,7 +37,8 @@ ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '127.0.0.1').split(',')
 # Application definition
 
 INSTALLED_APPS = [
-    'tinymce',
+    'markdownx',
+    'django.forms',
     "blog.apps.BlogConfig",  # ссылка мое на приложение
     'django.contrib.admin',
     'django.contrib.auth',
@@ -62,13 +63,15 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
             ],
         },
     },
@@ -136,25 +139,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'data')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-TINYMCE_DEFAULT_CONFIG = {
-    'height': 600,
-    'width': '100%',
-    'cleanup_on_startup': True,
-    'custom_undo_redo_levels': 10,
-    'selector': 'textarea',
-    'plugins': '''
-        textcolor save link image media preview codesample contextmenu
-        table code lists fullscreen insertdatetime nonbreaking
-        contextmenu directionality searchreplace wordcount visualblocks
-        visualchars code fullscreen autolink lists charmap print hr
-        anchor pagebreak
-    ''',
-    'toolbar': '''
-        fullscreen | bold italic underline | alignleft aligncenter alignright |
-        bullist numlist | link image | codesample |
-    ''',
-}
-
 DATA_UPLOAD_MAX_MEMORY_SIZE = 10 * 1024 * 1024
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -164,4 +148,15 @@ CSRF_TRUSTED_ORIGINS = [
     'https://i-savelev.ru',
     'http://i-savelev.ru',  # Если вы также используете HTTP
     'https://localhost',
+]
+
+
+MARKDOWNX_MEDIA_PATH = 'articles/'
+FORM_RENDERER = 'django.forms.renderers.TemplatesSetting'
+MARKDOWNX_EDITOR_RESIZABLE = False
+MARKDOWNX_MARKDOWN_EXTENSIONS = [
+    'markdown.extensions.extra',
+    'markdown.extensions.nl2br',
+    'markdown.extensions.fenced_code',
+    'markdown.extensions.codehilite',
 ]

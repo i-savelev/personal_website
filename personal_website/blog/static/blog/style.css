@@ -34,8 +34,8 @@ html,body {
   /* background-color: #000000; */
   color: #ffffff;
   display: flex;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  /* padding-top: 20px;
+  padding-bottom: 20px; */
   display: flex;
   justify-content: center; 
   align-items: center;
@@ -85,10 +85,16 @@ html,body {
   background: #000000;
 }
 
-ul {
+.topmenu > ul {
   list-style: none; 
   margin: 0;
   padding: 0;
+}
+
+.submenu ul {
+  list-style: none; 
+  margin: 0;
+  padding: 15;
 }
 
 .submenu > li {
@@ -101,12 +107,12 @@ ul li:hover .submenu {
   transform: scaleY(1);
 }
 
-li a {
+.header-container li a {
   display: flex;
   align-items: center;
 }
 
-li {
+.header-container li {
   display: flex;
   align-items: center;
 }
@@ -121,7 +127,7 @@ li {
   box-shadow: inset 0 -1.2em 0 hsla(0, 0%, 100%, 0.4);
 }
 
-li:hover p {
+.header-container li:hover p {
   animation: wave-animation 0.3s infinite;
 }
 
@@ -183,23 +189,26 @@ hr {
   margin-top: 10px;
   margin-bottom: 10px;
   font-size: 16px;
+  display: inline;
 }
 
 .post-inline a {
   color: white;
   display: inline;
   text-decoration: none;
-  display: inline-block;
+  /* display: inline-block; */
   padding: 0px;
   margin-right: 5px;
   font-family: 'JetBrains mono', monospace;
   font-weight: 600;
-  
+  text-decoration: none;
+  box-shadow: inset 0 -1px 0 rgba(109, 109, 109, 0.744);
 }
 
 .post-inline a:hover {
   text-decoration: underline;
   text-decoration-color: #696969;
+  box-shadow: inset 0 -1.2em 0 rgba(109, 109, 109, 0.744);
 }
 
 .blog_links a {
@@ -214,6 +223,15 @@ hr {
   font-weight: 800;
   font-size: 20px;
   box-shadow: inset 0 -1px 0 hsla(0, 0%, 100%, 0.4);
+}
+
+.post a {
+  color: rgb(0, 75, 179);
+  text-decoration: none;
+  box-shadow: inset 0 -1px 0 rgba(68, 118, 255, 0.744);
+}
+.post a:hover {
+  box-shadow: inset 0 -1.2em 0 rgba(59, 108, 255, 0.411);
 }
 
   
@@ -293,6 +311,7 @@ hr {
 
 .content img {
   border-radius: 10px;
+  border: 1px solid #989898;
 }
 
 .post h2 {
@@ -305,7 +324,7 @@ hr {
   line-height: 1.6;
 }
 
-.read-more {
+.post .read-more {
   display: inline-block;
   color: #000000;
   text-decoration: none;
@@ -331,18 +350,25 @@ hr {
   display: inline-block;
 }
 
-.read-more:hover {
+.post .read-more:hover {
   box-shadow: inset 0 -1.2em 0 hsla(0, 0%, 64%, 0.4);
 }
 
 
-code {
+.codehilite code {
   font-family: 'JetBrains mono', monospace;
-  background-color: #1e1e1e;
-  color: #ffffff;
+  color: #e1e1e1;
   white-space: pre-wrap;
   word-break: break-all;
-  font-size: 16px;
+  font-size: 14px;
+}
+
+.post li{
+  line-height: 1.5;
+}
+
+.post ul{
+  padding-inline-start: 20px;
 }
 
 pre {
@@ -352,11 +378,13 @@ pre {
 }
 
 p > code {
+  background-color: #d8d8d8;
+  color: #000000;
   border-radius: 3px;
   padding-left: 7px;
   padding-right: 7px;
-  padding-top: 2px;
-  padding-bottom: 2px;
+  padding-top: 1px;
+  padding-bottom: 1px;
 }
 
 .pagination {

@@ -5,7 +5,7 @@ from .models import Tag
 from django.core.paginator import Paginator
 
 def article_list(request):
-    articles_list = Article.objects.filter(draft=True).order_by('-pub_date')
+    articles_list = Article.objects.filter(pub=True).order_by('-pub_date')
     tags_list = Tag.objects.all()
     paginator = Paginator(articles_list, 5)
     page_number = request.GET.get("page")
@@ -19,7 +19,7 @@ def article_list(request):
     return render(request, 'blog/blog.html', context)
 
 def article_by_tag_list(request, tag_name):
-    articles_list = Article.objects.filter(draft=True, tags__name__icontains = tag_name).order_by('-pub_date')
+    articles_list = Article.objects.filter(pub=True, tags__name__icontains = tag_name).order_by('-pub_date')
     tags_list = Tag.objects.all()
     paginator = Paginator(articles_list, 5)
     page_number = request.GET.get("page")
@@ -36,7 +36,7 @@ def article_by_tag_list(request, tag_name):
     
 
 def article_all(request):
-    articles_list = Article.objects.filter(draft=True).order_by('-pub_date')
+    articles_list = Article.objects.filter(pub=True).order_by('-pub_date')
     paginator = Paginator(articles_list, 20)
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)

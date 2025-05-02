@@ -1,0 +1,43 @@
+<div class="markdownx" style="display: flex; flex-direction: column; gap: 10px; width: 100%;">
+    <div style="display: flex; gap: 20px;">
+        <div style="flex: 1; width: auto;">
+            {% include "django/forms/widgets/textarea.html" %}
+        </div>
+        <div id="preview-container" style="flex: 1; border: 1px solid #ccc; overflow-y: auto;">
+            <div class="markdownx-preview"></div>
+        </div>
+    </div>
+</div>
+
+
+<style>
+    .colM .aligned .vLargeTextField, .colM .aligned .vXMLLargeTextField {
+        width: 100%;
+        font-size: 16px;
+        /* height: 700px !important; */
+        
+    }
+    .preview-container {
+        font-size: 20px; 
+        height: 100%;
+        border-radius: 5px;
+        
+    }
+    .markdownx .markdownx-editor,
+    .markdownx .markdownx-preview  {
+        width: 100% !important;
+        height: 80vh; 
+        
+        
+    }
+
+    .markdownx .markdownx-preview p {
+        font-size: 16px !important
+    }
+    .markdownx .markdownx-preview li {
+        font-size: 16px !important
+    }
+  
+</style>
+
+
