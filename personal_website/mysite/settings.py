@@ -160,3 +160,7 @@ MARKDOWNX_MARKDOWN_EXTENSIONS = [
     'markdown.extensions.fenced_code',
     'markdown.extensions.codehilite',
 ]
+
+SESSION_COOKIE_AGE = 3600
+
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
