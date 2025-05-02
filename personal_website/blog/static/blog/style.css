@@ -320,7 +320,12 @@ hr {
 }
 
 .post p {
-  margin: 10px 0;
+  margin: 5px 0;
+  line-height: 1.6;
+}
+
+.description p, .content p {
+  margin: 15px 0;
   line-height: 1.6;
 }
 
