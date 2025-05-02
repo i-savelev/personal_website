@@ -28,7 +28,7 @@ class Article(models.Model):
         for file in folder_path.rglob('*'):
             if file.is_file() and pattern.match(file.name):
                 img_GUID = str(uuid.uuid4())
-                new_img_name = f'article_{self.title}_{img_GUID}.png'
+                new_img_name = f'article_{self.short_title}_{img_GUID}.png'
                 self.description = self.description.replace(file.name, new_img_name)
                 self.content = self.content.replace(file.name, new_img_name)
                 file.rename(f'{folder_path}/{new_img_name}')

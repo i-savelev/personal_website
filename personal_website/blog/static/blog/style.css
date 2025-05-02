@@ -181,6 +181,8 @@ hr {
   display: flex;
 	flex-direction: column;
   flex: start;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
 }
 
 .post-inline{
@@ -414,4 +416,5 @@ footer {
   margin-bottom: 0px;
   flex: 0 0 auto;
   width: 100%;
+  font-family: 'Inter', sans-serif;
 }
