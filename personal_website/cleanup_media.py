@@ -11,8 +11,9 @@ from blog.models import Article
 
 used_images = set()
 for post in Article.objects.all():
-    matches = re.findall(r"/data/articles/([^)\s]+)", post.content)
-    matches.extend(re.findall(r"/data/articles/([^)\s]+)", post.description))
+    pattern = r'(?:!\[.*?\]|\bimg\s+src)=["\'](.*?)["\']'
+    matches = re.findall(pattern, post.content)
+    matches.extend(re.findall(pattern, post.description))
     for filename in matches:
         used_images.add(filename)
 
