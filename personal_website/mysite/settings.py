@@ -166,6 +166,6 @@ SESSION_COOKIE_AGE = 3600
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 MARKDOWNX_IMAGE_MAX_SIZE = {
-    'size': (1000, 0),
+    'size': (900, 0),
     'quality': 90
 }
