@@ -1,6 +1,10 @@
 {% extends "blog/base.html" %}
 {% block content %}
 {% load md_filter %}
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="i-savelev">
+    <meta property="og:description" content="Личный блог">
+    <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'android-chrome-192x192.png' %}">
     <div class="posts-container">
         <div class = "blog_links">
             <a href="{% url 'blog:article_list' %}">blog</a>
