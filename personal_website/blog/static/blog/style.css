@@ -311,6 +311,7 @@ hr {
 .content img {
   border-radius: 10px;
   border: 1px solid #989898;
+  max-width: 100%;
 }
 
 .post h2 {
