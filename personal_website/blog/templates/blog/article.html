@@ -4,6 +4,12 @@
 {% load static %}
     <head>
         <link rel="stylesheet" type="text/css" href="{% static 'blog/code_styles.css' %}">
+         <!-- Open Graph -->
+        <meta property="og:title" content="{{ article.title }}">
+        <meta property="og:type" content="article">
+        {% if first_image %}
+            <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{{ first_image }}">
+        {% endif %}
     </head>
     <div class="posts-container">
         <div class = "blog_links">
