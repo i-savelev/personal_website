@@ -2,6 +2,15 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    <!-- Open Graph -->
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <meta property="og:site_name" content="i-savelev">
+    {% block head %}
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="i-savelev">
+        <meta property="og:description" content="Личный блог">
+        <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'android-chrome-512x512.png' %}">
+    {% endblock %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="yandex-verification" content="be756796e2f41807" />
@@ -27,15 +36,6 @@
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon-32x32.png' %}">
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon-16x16.png' %}">
     <link rel="manifest" href="{% static 'site.webmanifest' %}">
-    <!-- Open Graph -->
-    <meta property="og:url" content="{{ request.build_absolute_uri }}">
-    <meta property="og:site_name" content="i-savelev">
-    {% block head %}
-        <meta property="og:type" content="website">
-        <meta property="og:title" content="i-savelev">
-        <meta property="og:description" content="Личный блог">
-        <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'android-chrome-512x512.png' %}">
-    {% endblock %}
 </head>
 <body>
     <div class="container">

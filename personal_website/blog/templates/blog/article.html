@@ -1,5 +1,7 @@
 {% extends "blog/base.html" %}
 {% load static %}
+{% load md_filter %}
+
 {% block head %}
     <link rel="stylesheet" type="text/css" href="{% static 'blog/code_styles.css' %}">
     <meta property="og:type" content="article"> 
@@ -9,8 +11,8 @@
         <meta name="twitter:card" content="{{ request.scheme }}://{{ request.get_host }}{{ first_image }}" />
     {% endif %}
 {% endblock %}
+
 {% block content %}
-{% load md_filter %}
     <div class="posts-container">
         <div class = "blog_links">
             <a href="{% url 'blog:article_list' %}">blog</a>

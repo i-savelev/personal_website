@@ -1,7 +1,8 @@
 {% extends "blog/base.html" %}
-{% block content %}
 {% load md_filter %}
 {% load static %}
+
+{% block content %}
     <div class="posts-container">
         <div class = "blog_links">
             <a href="{% url 'blog:article_list' %}">blog</a>
