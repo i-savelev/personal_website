@@ -7,8 +7,9 @@
     <meta property="og:type" content="article"> 
     <meta property="og:title" content="{{ article.title }}">
     {% if first_image %}
+        <meta name="twitter:card" content="summary_large_image" />
         <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{{ first_image }}">
-        <meta name="twitter:card" content="{{ request.scheme }}://{{ request.get_host }}{{ first_image }}" />
+        <meta name="twitter:card" content="{{ request.scheme }}://{{ request.get_host }}{{ first_image }}">
     {% endif %}
 {% endblock %}
 
