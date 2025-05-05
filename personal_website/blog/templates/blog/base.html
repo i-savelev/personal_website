@@ -28,8 +28,14 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon-16x16.png' %}">
     <link rel="manifest" href="{% static 'site.webmanifest' %}">
     <!-- Open Graph -->
-    <meta property="og:site_name" content="i-savelev">
     <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <meta property="og:site_name" content="i-savelev">
+    {% block head %}
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="i-savelev">
+        <meta property="og:description" content="Личный блог">
+        <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'android-chrome-512x512.png' %}">
+    {% endblock %}
 </head>
 <body>
     <div class="container">
