@@ -34,7 +34,7 @@
                         {% endfor %}
                     </div>
                     <div class = "description">{{article.description | render_markdown }}</div>
-                    <a href="{% url 'blog:article' article.id %}" class="read-more">Читать далее</a>
+                    <a href="{% url 'blog:article' article.short_title %}" class="read-more">Читать далее</a>
                 </div>
             {% endfor %}
         {% else %}

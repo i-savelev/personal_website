@@ -14,7 +14,7 @@
         {% if page_obj %}
             {% for article in page_obj %}
                 <div class = "post-inline">
-                    <a href="{% url 'blog:article' article.id %}">{{article.title}}</a> {{article.pub_date |date:"Y.m.j"}}
+                    <a href="{% url 'blog:article' article.short_title %}">{{article.title}}</a> {{article.pub_date |date:"Y.m.j"}}
                     {% for tag in article.tags.all %}
                         <span class = "tag">#{{tag.name}}</span> 
                     {% endfor %}

@@ -11,7 +11,7 @@ class ArticleAdmin(MarkdownxModelAdmin):
         ("Content", {"fields": ["content"], "classes": ["collapse"]}),
     ]
 
-    list_display = ('title','id', 'get_tags', 'pub_date', 'pub') 
+    list_display = ('title', 'get_tags', 'pub_date', 'pub') 
     filter_horizontal = ("tags",)
     list_filter = ["pub"]
     

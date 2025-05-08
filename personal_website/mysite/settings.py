@@ -32,7 +32,7 @@ DEBUG = os.getenv('DEBUG', 'True') == 'True'
 # DEBUG = True
 
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '127.0.0.1').split(',')
-
+# ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -127,9 +127,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Путь для сборки статики
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, 'blog/static'),  # Дополнительные директории со статическими файлами
-# ]
 
 MEDIA_URL='/data/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'data')

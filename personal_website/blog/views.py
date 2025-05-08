@@ -48,8 +48,8 @@ def article_all(request):
     print(f"Rendering template: blog/allposts.html")
     return render(request, 'blog/blog_all_posts.html', context)    
 
-def article(request, article_id):
-    article = get_object_or_404(Article, pk=article_id)
+def article(request, short_title):
+    article = get_object_or_404(Article, pk=short_title)
     first_image = get_description_first_image(article.description)
     context = {
         'article': article,
@@ -64,3 +64,6 @@ def get_description_first_image(markdown_text):
     if match:
         return match.group(1)
     return None
+
+def error_404_view(request, exception):
+    return render(request, '404.html')
