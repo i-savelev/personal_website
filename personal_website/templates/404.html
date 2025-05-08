@@ -1,0 +1,11 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+    <div class="posts-container">
+        <div class = "blog_links">
+            <a href="{% url 'blog:article_list' %}">blog</a>
+            <a href="{% url 'blog:article_all' %}">all posts</a>
+        </div>
+            <p class = "placeholder">Ошибка 404. Такая страница не найдена</p>
+    </div>
+{% endblock %}

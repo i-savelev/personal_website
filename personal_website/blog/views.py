@@ -49,7 +49,7 @@ def article_all(request):
     return render(request, 'blog/blog_all_posts.html', context)    
 
 def article(request, short_title):
-    article = get_object_or_404(Article, pk=short_title)
+    article = get_object_or_404(Article, short_title=short_title)
     first_image = get_description_first_image(article.description)
     context = {
         'article': article,

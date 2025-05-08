@@ -15,7 +15,7 @@ class Tag(models.Model):
 
 class Article(models.Model):
     title = models.CharField(max_length=250)
-    short_title = models.CharField(primary_key=True)
+    short_title = models.CharField(unique=True, max_length=250)
     pub_date = models.DateTimeField(default=timezone.now)
     description = MarkdownxField()
     content = MarkdownxField(blank=True)
