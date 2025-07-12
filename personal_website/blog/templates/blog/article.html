@@ -3,6 +3,7 @@
 {% load md_filter %}
 
 {% block head %}
+    <title>{{ article.title }}</title>
     <link rel="stylesheet" type="text/css" href="{% static 'blog/code_styles.css' %}">
     <meta property="og:type" content="article"> 
     <meta property="og:title" content="{{ article.title }}">
