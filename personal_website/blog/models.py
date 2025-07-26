@@ -23,6 +23,18 @@ class Article(models.Model):
     pub = models.BooleanField()
 
     def save(self, *args, **kwargs):
+        '''
+        Saves the Article instance. Before saving, it searches for temporary image files
+        (matching a specific UUID pattern) in the 'articles' media folder. If found,
+        it renames these files to a permanent name based on the article's short_title
+        and updates their references in the description and content fields.
+
+        Args
+        - *args: Variable length argument list passed to the parent save method.
+        - **kwargs: Arbitrary keyword arguments passed to the parent save method.
+
+        return: None
+        '''
         pattern = re.compile(r'^[a-f0-9]{8}(?:-[a-f0-9]{4}){3}-[a-f0-9]{12}\.png$')
         folder_path = Path(settings.MEDIA_ROOT)/'articles'
         for file in folder_path.rglob('*'):
