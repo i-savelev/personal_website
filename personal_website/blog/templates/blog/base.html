@@ -1,35 +1,41 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <!-- Open Graph -->
     <meta property="og:url" content="{{ request.build_absolute_uri }}">
     <meta property="og:site_name" content="i-savelev">
     {% block head %}
-        <title>i-savelev</title>
-        <meta property="og:type" content="website">
-        <meta property="og:title" content="i-savelev">
-        <meta property="og:description" content="Личный блог">
-        <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'android-chrome-512x512.png' %}">
+    <title>i-savelev</title>
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="i-savelev">
+    <meta property="og:description" content="Личный блог">
+    <meta property="og:image"
+        content="{{ request.scheme }}://{{ request.get_host }}{% static 'android-chrome-512x512.png' %}">
     {% endblock %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="yandex-verification" content="be756796e2f41807" />
     <!-- Yandex.Metrika counter -->
-    <script type="text/javascript" >
-        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();
-        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-    
+    <script type="text/javascript">
+        (function (m, e, t, r, i, k, a) {
+            m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+            m[i].l = 1 * new Date();
+            for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })
+            (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
         ym(101574681, "init", {
-            clickmap:true,
-            trackLinks:true,
-            accurateTrackBounce:true
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true
         });
     </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/101574681" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/101574681" style="position:absolute; left:-9999px;" alt="" /></div>
+    </noscript>
     <!-- /Yandex.Metrika counter -->
     <link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}">
     <link rel="apple-touch-icon" sizes="180x180" href="{% static 'apple-touch-icon.png' %}">
@@ -37,18 +43,18 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon-16x16.png' %}">
     <link rel="manifest" href="{% static 'site.webmanifest' %}">
 </head>
+
 <body>
     <div class="container">
         <!-- Шапка -->
         <div class="header-container">
             <ul class="topmenu">
                 <li>&lt<a href="{% url 'blog:article_list' %}">i_savelev<p>✋</p></a>&gt</li>
-                <li class = "links">links
+                <li class="links">links
                     <ul class="submenu">
                         <li><a href="https://github.com/i-savelev" target="_blank">GitHub</a></li>
                         <li><a href="https://t.me/i_savelev" target="_blank">Telegram</a></li>
                         <li><a href="https://habr.com/ru/users/i-savelev/" target="_blank">Habr</a></li>
-                        <li><a href="mailto:ilyasavelyev98@mail.ru" target="_blank">Email</a></li>
                     </ul>
                 </li>
             </ul>
@@ -57,10 +63,11 @@
         {% block content %}
         {% endblock %}
         <footer>
-            <small> &copy; <span id="year">  </span> Ilya Savelev</small>
+            <small> &copy; <span id="year"> </span> Ilya Savelev</small>
         </footer>
     </div>
 
 </body>
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
 </html>
